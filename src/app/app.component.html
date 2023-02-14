@@ -1,0 +1,23 @@
+<div style="text-align: center">
+  <h1>Push & Splice Example</h1>
+</div>
+<div class="row" style=" background-color: #f0eeee;">
+  <div class="col-md-5 offset-md-1">
+    <ul class="list-unstyled">
+      <li>
+        <form  class="uk-form-horizontal" [formGroup]="createForm">
+          <div class="form-group">
+            <input type = "text" id ="" name = "txtTodo"  formControlName="tasks" class="form-control">
+          </div>
+          <button class="btn btn-primary btn-block" (click)="addTask()" >Add Task</button>
+        </form>
+    </ul>
+  </div>
+  <div class="col-md-5 offsaet-md-1">
+    <h4>Total Task ({{ countTask }})</h4>
+    <ol>
+      <!-- here the index is very important for the splice the element, if click on  the X then it take the index of that elemt and send it to the ferther to splice... -->
+      <li *ngFor="let t of TaskList; let i = index"> {{ t }}<a href="#" (click) = "removeTask(i)">X</a></li>
+    </ol>
+  </div>
+</div>
